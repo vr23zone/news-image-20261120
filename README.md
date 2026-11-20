@@ -63,10 +63,30 @@ pins and the DATE CHECK box are v3's, unchanged, and all text stays
 sharp and fully readable. Drawn by `draw4.py`, which imports the story
 data from `draw.py`/`draw2.py` unchanged.
 
+**Version 5 BOLD (current `entry.png`)** is built on the v3 CREAM
+version and combines Rohim's two instructions of 21 Nov 2026: colours
+"lebih tebal dan pekat" (thicker/bolder, deeper) and "background full
+nya warna kuning" (the full background is yellow). The whole canvas
+background is one flat bold deep yellow (#F2B705), with panels in a
+pale yellow-cream (#FEF4CD) so text stays readable while the page
+reads unmistakably yellow everywhere. The palette goes the opposite
+way from v4 SOFT: HLS saturation ×1.35 with lightness pulled down
+×0.93 for rich, concentrated tones, a deep strong crimson
+(166,14,32) for the DATE CHECK box and stat bars, strong near-black
+ink (13,14,17), a deep navy map sea and rich golden-sand land. Each
+of the 13 scenes is deepened as it is pasted in — saturation ×1.32,
+contrast ×1.07, brightness ×0.99 — flat and crisp like v3 (no blur,
+no pastel wash), and panels return to square corners with a strong
+near-black frame. All 37 stories, headlines, layout, the stat strip,
+the COP31 panel, the map pins and the DATE CHECK box are v3's,
+unchanged, and all text stays sharp and fully readable. Drawn by
+`draw5.py`, which imports the story data from `draw.py`/`draw2.py`
+unchanged.
+
 ## The image
 
-`entry.png` — 1024×1024, drawn deterministically by `draw4.py` (Python 3 +
-PIL, Liberation Serif + Noto Sans). Running `draw4.py` twice
+`entry.png` — 1024×1024, drawn deterministically by `draw5.py` (Python 3 +
+PIL, Liberation Serif + Noto Sans). Running `draw5.py` twice
 produces byte-identical output.
 
 - **37 stories** in total: 13 drawn panels + 24 briefs (v1: 12 + 25).
@@ -165,7 +185,8 @@ found on 20 Nov 2026.
 ## Run
 
 ```sh
-python3 draw4.py           # renders entry.png v4 SOFT (1024x1024, deterministic, 676653 bytes)
+python3 draw5.py           # renders entry.png v5 BOLD (1024x1024, deterministic, 669724 bytes)
+python3 draw4.py           # renders the v4 SOFT design
 python3 draw2.py           # renders the v2 design
 python3 draw.py            # renders the v1 design
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts   # copies it to out/entry.png
