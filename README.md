@@ -47,10 +47,26 @@ which imports the story data from `draw.py`/`draw2.py` unchanged.
 (#D8D8D6, panels #E7E7E4) instead of cream — same stories, layout and
 artwork, only the paper colour changed (693,749 → 667,485 bytes).
 
+**Version 4 SOFT (current `entry.png`)** is built on the v3 CREAM
+version (not the gray revision) and changes only the rendering, toward
+a soft, calm editorial illustration: the whole palette is desaturated
+~32% and lightened into muted pastels, ink becomes a soft charcoal
+(#2E2A26, never pure black), the DATE CHECK red becomes a soft
+terracotta, and the paper is a lighter warm cream (#F7F2E7) with
+panels a touch lighter still. Each of the 13 scenes is softened as it
+is pasted in — saturation ×0.68, contrast ×0.92, brightness ×1.04, a
+gentle vertical shading wash inside the flat shapes, a light blur
+blend that relaxes hard edges, and a 5% warm-paper tint — and panel
+frames gain rounded top corners with a pale warm-gray outline. All 37
+stories, headlines, layout, the stat strip, the COP31 panel, the map
+pins and the DATE CHECK box are v3's, unchanged, and all text stays
+sharp and fully readable. Drawn by `draw4.py`, which imports the story
+data from `draw.py`/`draw2.py` unchanged.
+
 ## The image
 
-`entry.png` — 1024×1024, drawn deterministically by `draw3.py` (Python 3 +
-PIL, Liberation Serif + Noto Sans). Running `draw3.py` twice
+`entry.png` — 1024×1024, drawn deterministically by `draw4.py` (Python 3 +
+PIL, Liberation Serif + Noto Sans). Running `draw4.py` twice
 produces byte-identical output.
 
 - **37 stories** in total: 13 drawn panels + 24 briefs (v1: 12 + 25).
@@ -149,7 +165,7 @@ found on 20 Nov 2026.
 ## Run
 
 ```sh
-python3 draw3.py           # renders entry.png v3 (1024x1024, deterministic, 667485 bytes)
+python3 draw4.py           # renders entry.png v4 SOFT (1024x1024, deterministic, 676653 bytes)
 python3 draw2.py           # renders the v2 design
 python3 draw.py            # renders the v1 design
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts   # copies it to out/entry.png
