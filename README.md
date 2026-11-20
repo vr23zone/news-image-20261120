@@ -15,13 +15,28 @@ symbols — no recognisable face of any real person is drawn), each tagged with
 its continent; 25 more stories run as a compact wire below. The date —
 **Friday 20 November 2026** — is named in the masthead.
 
+**Version 2 (current `entry.png`)** keeps the same 37 verified stories and
+the One Day, One Orbit identity, redesigned as a classic broadsheet front
+page after studying the competition's leading entries: cream paper with a
+fine deterministic grain, a huge serif masthead, a six-number stat strip, a
+continent tally bar, three large scene-illustrated leads, ten more
+illustrated panels, a pinned world map, a dense numbered briefs list,
+per-story source attributions, and a red DATE CHECK footer. It is drawn by
+`draw2.py`, which imports the verified story data from `draw.py` unchanged;
+all artwork is original flat illustration (no photographs, no likenesses).
+In the v2 image the 13 drawn panels are: 1 Akvan, 2 Kyiv, 3 COP31,
+4 markets, 5 Houthis, 6 tanker, 7 Genoa, 8 Trump, 9 Tesla, 10 turtle,
+11 NZ carbon market, 12 Antarctica, 13 Tbilisi (wire story 22 below,
+promoted to a panel); the other 24 wire stories run as briefs numbered
+14–37 in the order listed below.
+
 ## The image
 
-`entry.png` — 1024×1024, drawn deterministically by `draw.py` (Python 3 +
-PIL, Noto Sans + Noto Color Emoji). Running `draw.py` twice produces
-byte-identical output.
+`entry.png` — 1024×1024, drawn deterministically by `draw2.py` (Python 3 +
+PIL + numpy, Liberation Serif + Noto Sans). Running `draw2.py` twice
+produces byte-identical output.
 
-- **37 stories** in total: 12 featured panels + 25 wire stories.
+- **37 stories** in total: 13 drawn panels + 24 briefs (v1: 12 + 25).
 - **8 continents:** Asia 11 · Europe 10 · North America 7 · South America 5 ·
   Africa 1 · Antarctica 1 · Oceania 1 · Zealandia 1.
 
@@ -117,7 +132,8 @@ found on 20 Nov 2026.
 ## Run
 
 ```sh
-python3 draw.py            # renders entry.png (1024x1024, deterministic)
+python3 draw2.py           # renders entry.png v2 (1024x1024, deterministic, 1031729 bytes)
+python3 draw.py            # renders the v1 design
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts   # copies it to out/entry.png
 ```
 
