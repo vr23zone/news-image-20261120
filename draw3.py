@@ -18,6 +18,10 @@ v2's 983.9):
   our own verified data: 110 km/h gusts, Anthropic's $1.76tn debut
   value, the Dow's -1,101 points — replacing weak ones (4, 15 hurt).
 - Bolder in-scene labels and poster chips, richer saturated palette.
+- v3 revision (at Rohim's request): the paper background changes from
+  cream to a flat newsprint gray — PAPER #D8D8D6, panels a lighter gray
+  #E7E7E4, divider a mid gray — so the page reads as a gray newspaper.
+  Everything else (stories, layout, scenes, text) is unchanged.
 
 Deterministic: fixed layout, fixed fonts, seeded noise only (star/rain
 fields). Rendered at 2x (2048x2048) and downscaled to 1024x1024. Run
@@ -42,6 +46,23 @@ from draw2 import (
     PINS, TBILISI, SS, W, H, X, block, chip_label, draw_map, fit_font,
     font, scene_canvas, stars, text_c, text_r, vgrad, wrap,
 )
+import draw2 as _draw2
+
+# --- v3 revision: newsprint gray paper -----------------------------------
+# Rohim asked for the background "warna abu abu seperti warna koran"
+# (gray like newspaper paper) instead of v2/v3's cream. One flat gray
+# family, no grain: PAPER is the page, PANEL a lighter gray so panels
+# stay distinguishable, FAINT a mid gray for the divider rule. The
+# imported names are rebound here AND patched into draw2's module
+# globals, because helpers imported from draw2 (scene_canvas) read
+# PAPER from their own module. INK/MUTED text colours are unchanged —
+# dark text stays fully readable on the gray.
+PAPER = (216, 216, 214)  # #D8D8D6 — newsprint gray page background
+PANEL = (231, 231, 228)  # #E7E7E4 — lighter gray panel background
+FAINT = (176, 176, 173)  # #B0B0AD — gray divider rule
+_draw2.PAPER = PAPER
+_draw2.PANEL = PANEL
+_draw2.FAINT = FAINT
 
 OUT = "entry.png"
 
@@ -326,7 +347,7 @@ def sc_genoa(img, d, w, h):
 
 def sc_trump(img, d, w, h):
     """No-call symbol, hourglass and a big 2027 calendar — v3: bolder."""
-    d.rectangle([0, 0, X(w), X(h)], fill=(238, 230, 210))
+    d.rectangle([0, 0, X(w), X(h)], fill=PAPER)
     # Calendar page right, larger.
     cx = 0.56 * w
     d.rectangle([X(cx), X(0.06 * h), X(cx + 0.38 * w), X(0.94 * h)], fill=WHITE,
@@ -345,7 +366,7 @@ def sc_trump(img, d, w, h):
     # Phone handset (crescent) under a red prohibition sign, bottom-left.
     px, py = 0.15 * w, 0.72 * h
     d.ellipse([X(px - 13), X(py - 8), X(px + 13), X(py + 10)], fill=(30, 34, 40))
-    d.ellipse([X(px - 8), X(py - 14), X(px + 18), X(py + 4)], fill=(238, 230, 210))
+    d.ellipse([X(px - 8), X(py - 14), X(px + 18), X(py + 4)], fill=PAPER)
     d.ellipse([X(px - 13), X(py - 13), X(px + 13), X(py + 13)], outline=RED, width=X(2.2))
     d.line([X(px - 9.2), X(py + 9.2), X(px + 9.2), X(py - 9.2)], fill=RED, width=X(2.2))
     d.text((X(8), X(5)), "IRAN", font=font(SANS_B, 9), fill=(110, 60, 30))

@@ -43,6 +43,9 @@ stat strip now leads with the strongest numbers already inside the
 verified data (110 km/h gusts, Anthropic's $1.76tn debut value, the
 Dow's −1,101 points) instead of the weakest ones. Drawn by `draw3.py`,
 which imports the story data from `draw.py`/`draw2.py` unchanged.
+**Revision:** the paper background is now a flat newsprint gray
+(#D8D8D6, panels #E7E7E4) instead of cream — same stories, layout and
+artwork, only the paper colour changed (693,749 → 667,485 bytes).
 
 ## The image
 
@@ -146,7 +149,7 @@ found on 20 Nov 2026.
 ## Run
 
 ```sh
-python3 draw3.py           # renders entry.png v3 (1024x1024, deterministic, 693749 bytes)
+python3 draw3.py           # renders entry.png v3 (1024x1024, deterministic, 667485 bytes)
 python3 draw2.py           # renders the v2 design
 python3 draw.py            # renders the v1 design
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts   # copies it to out/entry.png

@@ -12,8 +12,10 @@
 // v2's layout and stories but redraws every scene larger and denser,
 // drops the paper grain for the crisp flat finish the leading entries
 // use, and leads the stat strip with the day's strongest numbers from
-// the same verified data. Render verified deterministic: draw3.py run
-// twice gives byte-identical entry.png (1024x1024, 693749 bytes).
+// the same verified data. Revision: paper background changed from
+// cream to flat newsprint gray (#D8D8D6). Render verified
+// deterministic: draw3.py run twice gives byte-identical entry.png
+// (1024x1024, 667485 bytes).
 import { copyFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
